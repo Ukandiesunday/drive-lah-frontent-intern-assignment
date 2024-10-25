@@ -1,0 +1,56 @@
+.sidebar {
+  max-width: 200px;
+  background-color: white;
+  padding: 16px;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  /* gap: 30px; */
+  transition: all 0.2s;
+  color: #026786;
+  border-left: 3px solid transparent;
+}
+
+/* .nav-item:hover {
+  color: #2d3748;
+} */
+
+.nav-item.active {
+  border-left-color: #00a3ad;
+
+  font-weight: 500;
+  color: #00a3ad;
+}
+
+.check-icon {
+  font-size: 18px;
+  width: 12px;
+  height: 12px;
+  padding: 2px;
+  border-radius: 50%;
+  background: #3b82f6;
+  color: white;
+}
+
+.extra-section {
+  margin-top: 16px;
+  padding-left: 16px;
+}
+
+.extra-text {
+  font-size: 14px;
+  color: #718096;
+  margin-bottom: 8px;
+}

@@ -1,0 +1,19 @@
+.shared-layout-inner-contents {
+  display: flex;
+  padding-top: 50px;
+  width: 100%;
+  margin-inline: auto;
+  max-width: 1200px;
+}
+
+.sidebar-container {
+  flex-basis: 19%;
+}
+
+.outlet-container {
+  max-width: 1000px;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  flex-basis: 80%;
+  flex-direction: column;
+}
