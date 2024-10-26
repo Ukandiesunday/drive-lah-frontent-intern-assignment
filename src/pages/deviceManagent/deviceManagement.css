@@ -1,0 +1,10 @@
+.select-container {
+  display: block;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .select-container {
+    display: none;
+  }
+}

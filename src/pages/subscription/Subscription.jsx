@@ -40,8 +40,8 @@ const Subscription = () => {
   return (
     <div className="subscription">
       <section className="section">
-        <h2 className="subscription-heading">Subscription Plan</h2>
-        <h4 className="plan-subheading">
+        <h2 className="heading">Subscription Plan</h2>
+        <h4 className="subheading">
           Select the ideal subscription plan for your listing
         </h4>
       </section>

@@ -1,5 +1,5 @@
 .footer {
-  padding: 10px 40px;
+  padding: 10px 20px;
   display: flex;
   justify-content: right;
   border-top: 2px solid #e6e6e6;
@@ -12,7 +12,7 @@
   padding: 4px;
   height: 60px;
   width: 100%;
-  max-width: 301px;
+
   border-radius: 4px;
   font-size: 18px;
   font-weight: 500;
@@ -22,4 +22,14 @@
 .next-btn:hover {
   border: 3px solid #00a3ad;
   background-color: #ffcd05;
+}
+
+@media (min-width: 768px) {
+  .next-btn {
+    max-width: 301px;
+  }
+
+  .footer {
+    padding: 10px 40px;
+  }
 }

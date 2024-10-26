@@ -1,12 +1,12 @@
 .section,
 .article {
-  padding: 20px 35px 15px 35px;
+  padding: 10px 0px 5px 0px;
 }
 .plan-heading {
   font-weight: 600;
   color: #00a3ad;
 }
-.subscription-heading {
+.heading {
   color: #026786;
 }
 .plan-price,
@@ -15,10 +15,13 @@
   font-size: 14px;
   color: #026786;
 }
-.plan-subheading {
+.subheading {
   color: #4a4a4a;
   font-weight: 700;
   font-size: 18px;
+}
+.subheading2 {
+  margin: 15px 0;
 }
 
 .month {
@@ -70,6 +73,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  background-color: #ffff;
   border: 1px solid #e6e6e6;
   border-radius: 4px;
   padding: 10px;
@@ -81,12 +85,6 @@
   width: 12px;
   border-radius: 50%;
   border: 2px solid #00a3ad;
-}
-
-@media (min-width: 768px) {
-  .select-btn-container {
-    flex-wrap: nowrap;
-  }
 }
 
 .add-card-wrapper {
@@ -128,4 +126,26 @@
 .article a {
   color: #00a3ad;
   text-decoration: underline;
+}
+
+hr {
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .select-btn-container {
+    flex-wrap: nowrap;
+  }
+
+  .section,
+  .article {
+    padding: 20px 35px 15px 35px;
+  }
+
+  hr {
+    border: 1px solid #e6e6e6;
+  }
+  .select-add-button {
+    background: transparent;
+  }
 }

@@ -8,14 +8,29 @@
 
 .sidebar-container {
   flex-basis: 19%;
+  display: none;
 }
 
 .outlet-container {
   max-width: 1000px;
   border: 1px solid #e6e6e6;
-  background-color: #ffff;
+  background: #fcfcfc;
   overflow: hidden;
   border-radius: 8px;
-  flex-basis: 80%;
+  flex-basis: 100%;
   flex-direction: column;
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .sidebar-container {
+    display: block;
+    flex-basis: 19%;
+  }
+
+  .outlet-container {
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+    flex-basis: 80%;
+  }
 }

@@ -48,7 +48,9 @@ const Sidebar = () => {
           <li
             key={item}
             onClick={() => handleItemClick(item)}
-            className={`nav-item ${item === activeItem ? "active" : ""}`}
+            className={`nav-item ${
+              item === activeItem ? "active" : "inactive"
+            }`}
           >
             <span>{item}</span>
 
