@@ -1,0 +1,131 @@
+.section,
+.article {
+  padding: 20px 35px 15px 35px;
+}
+.plan-heading {
+  font-weight: 600;
+  color: #00a3ad;
+}
+.subscription-heading {
+  color: #026786;
+}
+.plan-price,
+.plan-heading {
+  font-weight: 800;
+  font-size: 14px;
+  color: #026786;
+}
+.plan-subheading {
+  color: #4a4a4a;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.month {
+  font-weight: 400;
+  font-size: 12px;
+}
+.select-plan-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(297px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+.plan-cards {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #e6e6e6;
+  background: #fcfcfc;
+  color: #4a4a4a;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px;
+  transition: background-color 0.3s ease-in;
+  border-radius: 8px;
+}
+.plan-cards.active-plan {
+  background-color: #00a3ad0d;
+}
+.plan-items {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-wrap: nowrap;
+}
+
+/* select adds on styles  */
+.select-btn-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 12px;
+}
+.select-add-button {
+  font-weight: 600;
+  color: #00a3ad;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  padding: 10px;
+  height: 50px;
+  width: 100%;
+}
+.circle {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border: 2px solid #00a3ad;
+}
+
+@media (min-width: 768px) {
+  .select-btn-container {
+    flex-wrap: nowrap;
+  }
+}
+
+.add-card-wrapper {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  color: #b2b2b2;
+  gap: 40px;
+  width: 100%;
+  max-width: 480px;
+  margin: 12px 0;
+}
+.desc {
+  color: #b2b2b2;
+}
+.card-photo-container {
+  display: flex;
+  align-items: center;
+}
+.card-photo {
+  width: 40px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.card-year {
+  margin-right: 25px;
+}
+
+.article p {
+  color: #4a4a4a;
+  font-weight: 500;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.article a {
+  color: #00a3ad;
+  text-decoration: underline;
+}

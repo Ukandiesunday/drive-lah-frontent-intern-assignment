@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Sidebar from "../sidebar/Sidebar";
 import "./sharedLayout.css";
+import Footer from "../footer/Footer";
 const SharedLayout = () => {
   return (
     <div>
@@ -15,6 +16,7 @@ const SharedLayout = () => {
           <Outlet />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

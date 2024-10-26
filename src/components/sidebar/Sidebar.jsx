@@ -23,6 +23,8 @@ const Sidebar = () => {
     "Pictures",
     "Insurance",
     "Subscription",
+    "Device",
+    "Easy Access",
   ];
 
   const handleItemClick = (item) => {
@@ -56,10 +58,6 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
-      <div className="extra-section">
-        <div className="extra-text">Device</div>
-        <div className="extra-text">Easy Access</div>
-      </div>
     </div>
   );
 };

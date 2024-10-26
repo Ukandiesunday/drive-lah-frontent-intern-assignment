@@ -1,9 +1,9 @@
 .shared-layout-inner-contents {
   display: flex;
-  padding-top: 50px;
+  padding: 50px 20px 10px 20px;
   width: 100%;
   margin-inline: auto;
-  max-width: 1200px;
+  max-width: 1270px;
 }
 
 .sidebar-container {
@@ -13,6 +13,8 @@
 .outlet-container {
   max-width: 1000px;
   border: 1px solid #e6e6e6;
+  background-color: #ffff;
+  overflow: hidden;
   border-radius: 8px;
   flex-basis: 80%;
   flex-direction: column;

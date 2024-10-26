@@ -1,0 +1,25 @@
+.footer {
+  padding: 10px 40px;
+  display: flex;
+  justify-content: right;
+  border-top: 2px solid #e6e6e6;
+  padding-bottom: 50px;
+}
+.next-btn {
+  color: #00a3ad;
+  border: 3px solid transparent;
+  background-color: #fbd745;
+  padding: 4px;
+  height: 60px;
+  width: 100%;
+  max-width: 301px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: all 0.7s ease-in-out;
+}
+
+.next-btn:hover {
+  border: 3px solid #00a3ad;
+  background-color: #ffcd05;
+}
