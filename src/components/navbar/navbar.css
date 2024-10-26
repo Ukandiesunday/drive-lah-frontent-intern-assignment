@@ -14,6 +14,7 @@
   justify-content: space-between;
   align-items: center;
   height: 73px;
+  padding-inline: 20px;
 }
 
 .logo {
@@ -24,4 +25,21 @@
   display: flex;
   font-weight: 500;
   gap: 50px;
+}
+.nav-right {
+  display: none;
+}
+.amburger,
+.user {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .nav-right {
+    display: block;
+  }
+  .amburger,
+  .user {
+    display: none;
+  }
 }

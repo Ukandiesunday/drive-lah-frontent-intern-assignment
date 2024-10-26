@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaCheck } from "react-icons/fa"; // Still using the FontAwesome icon
+import { FaCheck } from "react-icons/fa";
 import { handleRetrieveItem, handleStoreItem } from "../../helpers/storage";
 import "./sidebar.css";
 
@@ -10,7 +10,7 @@ const Sidebar = () => {
 
   const [visitedItems, setVisitedItems] = useState(() => {
     const stored = handleRetrieveItem("visitedItems");
-    return stored ? JSON.parse(stored) : [];
+    return stored ? JSON.parse(stored) : null;
   });
 
   const navItems = [
@@ -48,9 +48,7 @@ const Sidebar = () => {
           <li
             key={item}
             onClick={() => handleItemClick(item)}
-            className={`nav-item ${
-              item === activeItem ? "active" : "inactive"
-            }`}
+            className={`nav-item ${item === activeItem ? "active" : ""}`}
           >
             <span>{item}</span>
 
