@@ -1,12 +1,13 @@
 import React from "react";
 import "./navbar.css";
-import { FaBurger, FaUser } from "react-icons/fa6";
+import { IoMdMenu } from "react-icons/io";
+import { FaRegUserCircle } from "react-icons/fa";
 const Navbar = () => {
   return (
     <header className="header">
       <nav className="navbar">
         <div className="amburger">
-          <FaBurger />
+          <IoMdMenu className="burger-icon" />
         </div>
         <img className="logo" src="/drivelah.webp" alt="" />
         <div className="nav-right">
@@ -14,10 +15,14 @@ const Navbar = () => {
             <li>Learn More </li>
             <li>List Your Car</li>
             <li>Inbox</li>
+            <li>
+              {" "}
+              <img className="user-login" src="/userhaedset.jpg" alt="" />
+            </li>
           </ul>
         </div>
         <div className="user">
-          <FaUser />
+          <FaRegUserCircle />
         </div>
       </nav>
     </header>

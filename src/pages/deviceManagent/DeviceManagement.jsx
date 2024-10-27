@@ -1,44 +1,32 @@
 import "./deviceManagement.css";
 import SharedDeviceLayout from "../../components/sharedDeviceLayout/SharedDeviceLayout";
-import { useState } from "react";
-import "../../components/toggleSwitch/toggleSwitch.css";
+import { useEffect, useState } from "react";
+import { getItem, handleStoreItem } from "../../helpers/storage";
 
 const DeviceManagement = () => {
+  const [isChecked1, setChecked1] = useState(() => getItem("isChecked1"));
+  const [isChecked2, setChecked2] = useState(() => getItem("isChecked2"));
+  const [isChecked3, setChecked3] = useState(() => getItem("isChecked3"));
+  const [isChecked4, setChecked4] = useState(() => getItem("isChecked4"));
+
   const [inputValue, setInputValue] = useState({
-    isChecked: false,
     serialNumber: "",
     file: "",
   });
 
   const handleChange = (e) => {
-    const target = e.target;
+    const { value, files } = e.target;
     setInputValue({
       ...inputValue,
-      isChecked: !target.checked,
-      serialNumber: target.value,
-      file: target.file[0],
+      serialNumber: value,
+      file: files && files[0],
     });
   };
 
-  const ToggleSwitch = () => {
-    const [isChecked, setIsChecked] = useState(false);
-
-    return (
-      <div className="toggle-container">
-        <label className="switch" htmlFor="switch">
-          <input
-            hidden
-            id="switch"
-            type="checkbox"
-            checked={inputValue.isChecked}
-            onChange={handleChange}
-          />
-          <span className="slider" />
-        </label>
-      </div>
-    );
-  };
-
+  useEffect(() => handleStoreItem("isChecked1", isChecked1), [isChecked1]);
+  useEffect(() => handleStoreItem("isChecked2", isChecked2), [isChecked2]);
+  useEffect(() => handleStoreItem("isChecked3", isChecked3), [isChecked3]);
+  useEffect(() => handleStoreItem("isChecked4", isChecked4), [isChecked4]);
   return (
     <div>
       <div className="select-add-button select-container">
@@ -56,42 +44,54 @@ const DeviceManagement = () => {
       <hr />
       <section className="section">
         <SharedDeviceLayout
-          heading={"Device 1"}
+          heading={isChecked1 ? "Device 1" : "Device 1"}
+          isChecked={isChecked1}
+          gps={isChecked1 ? "Primary GPS" : "Primary GPS"}
+          label={"check1"}
+          setChecked={setChecked1}
           handleChange={handleChange}
-          type={"file" || "text"}
-          inputValue={inputValue}
-          toggleIcon={<ToggleSwitch />}
+          file={inputValue.file}
+          serialNumber={inputValue.serialNumber}
         />
       </section>
       <hr />
       <section className="section">
         <SharedDeviceLayout
-          heading={"Device 2"}
+          heading={isChecked2 ? "Device 2" : "Device 1"}
+          gps={isChecked2 ? "Secondary GPS" : "Primary GPS"}
+          isChecked={isChecked2}
+          label={"check2"}
+          setChecked={setChecked2}
           handleChange={handleChange}
-          type={"file" || "text"}
-          inputValue={inputValue}
-          toggleIcon={<ToggleSwitch />}
+          file={inputValue.file}
+          serialNumber={inputValue.serialNumber}
         />
       </section>
       <hr />
 
       <section className="section">
         <SharedDeviceLayout
-          heading={"Device 3"}
+          heading={isChecked3 ? "Device 2" : "Device 3"}
+          isChecked={isChecked3}
+          gps={isChecked3 ? "Secondary GPS" : "Drive Mate Go"}
+          label={"check3"}
+          setChecked={setChecked3}
           handleChange={handleChange}
-          type={"file" || "text"}
-          inputValue={inputValue}
-          toggleIcon={<ToggleSwitch />}
+          file={inputValue.file}
+          serialNumber={inputValue.serialNumber}
         />
       </section>
       <hr />
       <section className="section">
         <SharedDeviceLayout
-          heading={"Device 4"}
+          heading={isChecked4 ? "Device 4" : "Device 4"}
+          gps={isChecked4 ? "LockBook" : "LockBook"}
+          isChecked={isChecked4}
+          label={"check4"}
+          setChecked={setChecked4}
           handleChange={handleChange}
-          type={"file" || "text"}
-          inputValue={inputValue}
-          toggleIcon={<ToggleSwitch />}
+          file={inputValue.file}
+          serialNumber={inputValue.serialNumber}
         />
       </section>
     </div>

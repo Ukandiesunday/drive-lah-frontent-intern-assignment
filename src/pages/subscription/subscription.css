@@ -52,6 +52,11 @@
   background-color: #00a3ad0d;
   border: 1.5px solid #00a3ad;
 }
+
+.sub-icons {
+  width: 14px;
+  height: 14px;
+}
 .plan-items {
   display: flex;
   align-items: center;

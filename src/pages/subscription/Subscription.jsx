@@ -3,11 +3,6 @@ import "./subscription.css";
 import { getItem, handleStoreItem } from "../../helpers/storage";
 
 const Subscription = () => {
-  // const [activePlan, setActivePlan] = useState("");
-
-  // const [activeItem, setActiveItem] = useState(
-  //   () => handleRetrieveItem("activePlan") || null
-  // );
   const [activeItem, setActiveItem] = useState(
     () => getItem("activePlan") || null
   );
@@ -18,11 +13,10 @@ const Subscription = () => {
     }
   }, [activeItem]);
 
-  // Handle card click
   const handleItemClick = (itemId) => {
     setActiveItem(itemId);
   };
-  console.log(activeItem);
+
   const cardItems = [
     {
       id: 1,
@@ -31,7 +25,6 @@ const Subscription = () => {
       desc2: "Mileage reporting to be done by you",
       desc3: "In-person key handover to guests",
       price: "free",
-      icons: ["/location.svg", "/e.svg", "/lock.svg"],
     },
     {
       id: 2,
@@ -40,7 +33,6 @@ const Subscription = () => {
       desc2: "automated mileage calculations",
       desc3: "In-person key handover to guests",
       price: 10,
-      icons: ["/location.svg", "/e.svg", "/lock.svg"],
     },
     {
       id: 3,
@@ -49,7 +41,6 @@ const Subscription = () => {
       desc2: "Automated mileage calculations",
       desc3: "Remote handover to guests",
       price: 30,
-      icons: ["/location.svg", "/e.svg", "/lock.svg"],
     },
   ];
 
@@ -80,15 +71,15 @@ const Subscription = () => {
             >
               <li className="plan-heading">{item.head}</li>
               <li className="plan-items">
-                <img src={item.icons[0]} alt="" />
+                <img src={"/location.svg"} className="sub-icons" alt="" />
                 {item.desc1}
               </li>
               <li className="plan-items">
-                <img src={item.icons[1]} alt="" />
+                <img src={"/e.svg"} className="sub-icons" alt="" />
                 {item.desc2}
               </li>
               <li className="plan-items">
-                <img src={item.icons[2]} alt="" />
+                <img src={"/lock.svg"} className="sub-icons" alt="" />
                 {item.desc3}
               </li>
               {item.price === "free" ? (
@@ -164,114 +155,3 @@ const Subscription = () => {
 };
 
 export default Subscription;
-
-// import { useEffect, useState } from "react";
-// import "./subscription.css";
-
-// // Helper functions for local storage
-// const handleStoreItem = (key, value) => {
-//   localStorage.setItem(key, JSON.stringify(value));
-// };
-
-// const handleRetrieveItem = (key) => {
-//   const item = localStorage.getItem(key);
-//   return item ? JSON.parse(item) : null;
-// };
-
-// const Subscription = () => {
-//   // Lazily initialize state with value from localStorage or default to null
-//   const [activeItem, setActiveItem] = useState(
-//     () => handleRetrieveItem("activePlan") || null
-//   );
-
-//   // Update localStorage whenever activeItem changes
-//   useEffect(() => {
-//     if (activeItem !== null) {
-//       handleStoreItem("activePlan", activeItem);
-//     }
-//   }, [activeItem]);
-
-//   // Handle card click
-//   const handleItemClick = (itemId) => {
-//     setActiveItem(itemId);
-//   };
-
-//   const cardItems = [
-//     {
-//       id: 1,
-//       head: "Just matches",
-//       desc1: "Bring your own GPS",
-//       desc2: "Mileage reporting to be done by you",
-//       desc3: "In-person key handover to guests",
-//       price: "free",
-//       icons: ["/location.svg", "/e.svg", "/lock.svg"],
-//     },
-//     {
-//       id: 2,
-//       head: "Good matches",
-//       desc1: "Primary GPS included",
-//       desc2: "Automated mileage calculations",
-//       desc3: "In-person key handover to guests",
-//       price: 10,
-//       icons: ["/location.svg", "/e.svg", "/lock.svg"],
-//     },
-//     {
-//       id: 3,
-//       head: "Best matches",
-//       desc1: "Keyless access technology",
-//       desc2: "Automated mileage calculations",
-//       desc3: "Remote handover to guests",
-//       price: 30,
-//       icons: ["/location.svg", "/e.svg", "/lock.svg"],
-//     },
-//   ];
-
-//   return (
-//     <div className="subscription">
-//       <section className="section">
-//         <h2 className="heading">Subscription Plan</h2>
-//         <h4 className="subheading">
-//           Select the ideal subscription plan for your listing
-//         </h4>
-//       </section>
-//       <hr />
-//       <section className="section">
-//         <h4 className="plan-subheading">Select your plan</h4>
-//         <div className="select-plan-cards-container">
-//           {cardItems.map((item) => (
-//             <ul
-//               key={item.id}
-//               onClick={() => handleItemClick(item.id)}
-//               className={`plan-cards ${
-//                 item.id === activeItem ? "active-plan" : ""
-//               }`}
-//             >
-//               <li className="plan-heading">{item.head}</li>
-//               <li className="plan-items">
-//                 <img src={item.icons[0]} alt="" />
-//                 {item.desc1}
-//               </li>
-//               <li className="plan-items">
-//                 <img src={item.icons[1]} alt="" />
-//                 {item.desc2}
-//               </li>
-//               <li className="plan-items">
-//                 <img src={item.icons[2]} alt="" />
-//                 {item.desc3}
-//               </li>
-//               {item.price === "free" ? (
-//                 <li className="plan-price">Free</li>
-//               ) : (
-//                 <li className="plan-price">
-//                   ${item.price} <span className="month">/month</span>
-//                 </li>
-//               )}
-//             </ul>
-//           ))}
-//         </div>
-//       </section>
-//     </div>
-//   );
-// };
-
-// export default Subscription;

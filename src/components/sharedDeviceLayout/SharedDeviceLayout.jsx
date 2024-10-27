@@ -1,24 +1,43 @@
+import { useEffect } from "react";
+import { handleStoreItem } from "../../helpers/storage";
 import "./sharedDevice.css";
 
 const SharedDeviceLayout = ({
   heading,
   handleChange,
-  inputValue,
-  toggleIcon,
+  file,
+  serialNumber,
+  isChecked,
+  setChecked,
+  gps,
+  label,
 }) => {
+  const toggleChecked = () => setChecked(!isChecked);
+
   return (
     <div>
       <h4 className="subheading">{heading}</h4>
       <div className="device-wrapper">
-        <div className="device-row">
+        <div id="device-row">
           <div className="device-type">
             <label>Device Type</label>
-            <span className="">Primary GPS </span>
+            <span className="">{gps}</span>
           </div>
           <div className="toggle-wrapper">
             <div className="toggle-btn-container">
               <span>Bringing your own device?</span>
-              {toggleIcon}
+              <div className="toggle-container">
+                <label className="switch" htmlFor={label}>
+                  <input
+                    hidden
+                    id={label}
+                    type="checkbox"
+                    checked={isChecked}
+                    onChange={toggleChecked}
+                  />
+                  <span className="slider" />
+                </label>
+              </div>
             </div>
             <p>
               Toggle this on if you're bringing your own device. Leave it off if
@@ -27,13 +46,16 @@ const SharedDeviceLayout = ({
           </div>
         </div>
 
-        <div className="device-row">
+        <div
+          className={`device-row ${isChecked && "checked-device"}`}
+          id="device-row"
+        >
           <div className="device-type">
             <label>Serial Number</label>
             <input
               className="device-input"
               type="text"
-              value={inputValue.serialNumber}
+              value={serialNumber}
               name=""
               id=""
               onChange={handleChange}
@@ -45,7 +67,7 @@ const SharedDeviceLayout = ({
             <div className="upload-zone">
               <input
                 hidden
-                value={inputValue.file}
+                value={file}
                 type="file"
                 name=""
                 id="upload"

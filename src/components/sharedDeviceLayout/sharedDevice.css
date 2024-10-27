@@ -1,8 +1,9 @@
-.device-row {
+#device-row {
   display: flex;
   justify-content: space-between;
   width: 100%;
   gap: 20px;
+
   flex-wrap: wrap;
 }
 
@@ -61,9 +62,15 @@
   text-decoration: underline;
   background-color: #fcfcfc;
 }
-
+.device-row {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 0.4s ease-in-out;
+}
+.device-row.checked-device {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
 @media (min-width: 768px) {
-  .device-row {
+  #device-row {
     flex-wrap: nowrap;
   }
   .upload-zone {

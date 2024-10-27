@@ -10,7 +10,7 @@ const Sidebar = () => {
 
   const [visitedItems, setVisitedItems] = useState(() => {
     const stored = handleRetrieveItem("visitedItems");
-    return stored ? JSON.parse(stored) : null;
+    return stored ? JSON.parse(stored) : [];
   });
 
   const navItems = [
