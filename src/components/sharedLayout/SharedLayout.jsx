@@ -1,9 +1,13 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Sidebar from "../sidebar/Sidebar";
 import "./sharedLayout.css";
 import Footer from "../footer/Footer";
+
 const SharedLayout = () => {
+  const location = useLocation();
+  const { pathName } = location;
+  console.log(pathName);
   return (
     <div>
       <Navbar />
@@ -16,7 +20,7 @@ const SharedLayout = () => {
           <Outlet />
         </div>
       </div>
-      <Footer />
+      <Footer pathName={pathName} />
     </div>
   );
 };

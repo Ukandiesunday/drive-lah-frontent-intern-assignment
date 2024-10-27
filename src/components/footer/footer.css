@@ -3,7 +3,8 @@
   display: flex;
   justify-content: right;
   border-top: 2px solid #e6e6e6;
-  padding-bottom: 50px;
+  padding-bottom: 80px;
+  margin-bottom: 80px;
 }
 .next-btn {
   color: #00a3ad;

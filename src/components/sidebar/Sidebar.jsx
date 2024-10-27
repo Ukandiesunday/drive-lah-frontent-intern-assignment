@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FaCheck } from "react-icons/fa";
 import { handleRetrieveItem, handleStoreItem } from "../../helpers/storage";
 import "./sidebar.css";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [activeItem, setActiveItem] = useState(
@@ -14,17 +15,17 @@ const Sidebar = () => {
   });
 
   const navItems = [
-    "Location",
-    "About",
-    "Features",
-    "Rules",
-    "Pricing",
-    "Promotion",
-    "Pictures",
-    "Insurance",
-    "Subscription",
-    "Device",
-    "Easy Access",
+    "location",
+    "about",
+    "features",
+    "rules",
+    "pricing",
+    "promotion",
+    "pictures",
+    "insurance",
+    "subscription",
+    "device",
+    "easy access",
   ];
 
   const handleItemClick = (item) => {
@@ -45,16 +46,18 @@ const Sidebar = () => {
     <div className="sidebar">
       <ul className="nav-list">
         {navItems.map((item) => (
-          <li
-            key={item}
-            onClick={() => handleItemClick(item)}
-            className={`nav-item ${item === activeItem ? "active" : ""}`}
-          >
-            <span>{item}</span>
+          <li key={item}>
+            <Link
+              to={item}
+              onClick={() => handleItemClick(item)}
+              className={`nav-item ${item === activeItem ? "active" : ""}`}
+            >
+              <span>{item}</span>
 
-            {visitedItems.includes(item) && activeItem !== item && (
-              <FaCheck className="check-icon" />
-            )}
+              {visitedItems.includes(item) && activeItem !== item && (
+                <FaCheck className="check-icon" />
+              )}
+            </Link>
           </li>
         ))}
       </ul>

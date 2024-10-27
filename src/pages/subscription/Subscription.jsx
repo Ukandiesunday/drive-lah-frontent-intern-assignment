@@ -4,7 +4,7 @@ import { getItem, handleStoreItem } from "../../helpers/storage";
 
 const Subscription = () => {
   const [activeItem, setActiveItem] = useState(
-    () => getItem("activePlan") || null
+    () => getItem("activePlan") || 0
   );
 
   useEffect(() => {
@@ -59,7 +59,7 @@ const Subscription = () => {
       </section>
       <hr />
       <section className="section">
-        <h4 className="plan-subheading">select your plan</h4>
+        <h4 className="subheading">Select your plan</h4>
         <div className="select-plan-cards-container">
           {cardItems.map((item, index) => (
             <ul
@@ -96,49 +96,56 @@ const Subscription = () => {
       </section>
       <hr />
       <section className="section">
-        <h4 className="plan-subheading">
-          Select add-ons for your subscription
-        </h4>
+        <h4 className="subheading">Select add-ons for your subscription</h4>
 
-        <div className="select-btn-container">
-          {activeItem === 1 && (
-            <button className="select-add-button">
-              BYO Secondary GPS $5/month <span className="circle"></span>
-            </button>
-          )}
-          {activeItem === 2 && (
-            <button className="select-add-button">
+        <div
+          className={`select-btn-container active-plan-container  ${
+            activeItem >= 1 ? "active-select" : ""
+          }`}
+        >
+          <button className="select-add-button">
+            BYO Secondary GPS $5/month <span className="circle"></span>
+          </button>
+
+          <div
+            className={`select-plan-wrapper ${
+              activeItem === 2 && "select-plan-visible"
+            }`}
+          >
+            <button className="select-add-button select-add-button2">
               BYO Secondary GPS $10/month <span className="circle"></span>
             </button>
-          )}
-          {activeItem === 3 && (
-            <button className="select-add-button coming-soon">
+
+            <button
+              className={`select-add-button coming-soon ${
+                activeItem === 3 && "active-coming-soon"
+              }`}
+            >
               Between trip insurance <span className="circle"></span>
             </button>
-          )}
+          </div>
         </div>
       </section>
       <hr />
-
-      <section className="section">
-        <h4 className="plan-subheading">
-          Select add-ons for your subscription
-        </h4>
-        <button className="select-add-button add-card-wrapper">
-          <span className="card-photo-container">
-            <img className="card-photo" src="/card.png" alt="card picture" />
-            12345678 12345678
-          </span>
-          <span>
-            <span className="card-year">MM/YY</span>
-            <span>CVC</span>
-          </span>
-        </button>
-        <p className="desc">
-          You will not be charged right now.Subscription will only start once
-          your listing is published and live.
-        </p>
-      </section>
+      {activeItem === 2 && (
+        <section className={`section `}>
+          <h4 className="subheading">Add card details</h4>
+          <button className="select-add-button add-card-wrapper">
+            <span className="card-photo-container">
+              <img className="card-photo" src="/card.png" alt="card picture" />
+              12345678 12345678
+            </span>
+            <span>
+              <span className="card-year">MM/YY</span>
+              <span>CVC</span>
+            </span>
+          </button>
+          <p className="desc">
+            You will not be charged right now.Subscription will only start once
+            your listing is published and live.
+          </p>
+        </section>
+      )}
       <hr />
       <article className="article">
         <p>

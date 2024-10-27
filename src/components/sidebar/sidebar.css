@@ -22,6 +22,7 @@
   text-wrap: nowrap;
   color: #026786;
   border-left: 3px solid transparent;
+  text-transform: capitalize;
 }
 
 .nav-item.active {

@@ -16,7 +16,7 @@
   color: #026786;
 }
 .subheading {
-  color: #4a4a4a;
+  color: #555555;
   font-weight: 700;
   font-size: 18px;
 }
@@ -138,6 +138,60 @@ hr {
   border: none;
 }
 
+.select-plan-wrapper {
+  position: relative;
+  overflow: hidden;
+  visibility: hidden;
+}
+.select-plan-wrapper.select-plan-visible {
+  visibility: visible;
+  isolation: isolate;
+}
+.select-add-button2,
+.coming-soon {
+  position: absolute;
+  inset: 0;
+}
+
+.active-plan-container {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+}
+.active-plan-container {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 0.4s ease-in-out;
+}
+.active-plan-container.active-select {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.coming-soon {
+  position: relative;
+}
+.coming-soon::after {
+  content: "Coming Soon";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  padding: 5px;
+  background: #c7c5c5;
+  color: #7c7c7c;
+  height: 14px;
+  border-radius: 2px;
+  width: fit-content;
+}
+
+.coming-soon {
+  top: -80px;
+  z-index: -1;
+  visibility: hidden;
+}
+.coming-soon.active-coming-soon {
+  top: 0px;
+  z-index: 1;
+  z-index: 50;
+  visibility: visible;
+}
 @media (min-width: 768px) {
   .select-btn-container {
     flex-wrap: nowrap;
