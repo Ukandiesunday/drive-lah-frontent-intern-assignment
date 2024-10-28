@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { handleStoreItem } from "../../helpers/storage";
 import "./sharedDevice.css";
 
 const SharedDeviceLayout = ({

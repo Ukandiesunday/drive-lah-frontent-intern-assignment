@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FaCheck } from "react-icons/fa";
 import { handleRetrieveItem, handleStoreItem } from "../../helpers/storage";
 import "./sidebar.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
   const [activeItem, setActiveItem] = useState(
@@ -21,20 +21,6 @@ const Sidebar = () => {
   useEffect(() => {
     setActiveRoute(location.pathname);
   }, [location]);
-
-  // const navItems = [
-  //   "location",
-  //   "about",
-  //   "features",
-  //   "rules",
-  //   "pricing",
-  //   "promotion",
-  //   "pictures",
-  //   "insurance",
-  //   "subscription",
-  //   "device",
-  //   "easy access",
-  // ];
 
   const navItems = [
     { path: "/location", content: "location" },
@@ -69,7 +55,7 @@ const Sidebar = () => {
       <ul className="nav-list">
         {navItems.map((item, index) => (
           <li key={index}>
-            <Link
+            <NavLink
               to={item.path}
               onClick={() => handleItemClick(item.path)}
               className={`nav-item ${
@@ -77,10 +63,9 @@ const Sidebar = () => {
               }`}
             >
               <span>{item.content}</span>
-
               {visitedItems.includes(item.path) &&
                 activeRoute !== item.path && <FaCheck className="check-icon" />}
-            </Link>
+            </NavLink>
           </li>
         ))}
       </ul>
