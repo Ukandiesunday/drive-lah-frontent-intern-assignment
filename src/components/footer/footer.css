@@ -2,10 +2,13 @@
   padding: 10px 20px;
   display: flex;
   justify-content: right;
-  border-top: 2px solid #e6e6e6;
-  padding-bottom: 80px;
-  margin-bottom: 80px;
+  width: 100%;
 }
+
+.footer-container {
+  border-top: 2px solid #e6e6e6;
+}
+
 .next-btn {
   color: #00a3ad;
   border: 3px solid transparent;
@@ -31,6 +34,8 @@
   }
 
   .footer {
-    padding: 10px 40px;
+    padding: 10px 26px 50px;
+
+    max-width: 80%;
   }
 }

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FaCheck } from "react-icons/fa";
 import { handleRetrieveItem, handleStoreItem } from "../../helpers/storage";
 import "./sidebar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
   const [activeItem, setActiveItem] = useState(
@@ -14,18 +14,40 @@ const Sidebar = () => {
     return stored ? JSON.parse(stored) : [];
   });
 
+  const location = useLocation();
+  const [activeRoute, setActiveRoute] = useState(location.pathname);
+
+  console.log(activeRoute);
+  useEffect(() => {
+    setActiveRoute(location.pathname);
+  }, [location]);
+
+  // const navItems = [
+  //   "location",
+  //   "about",
+  //   "features",
+  //   "rules",
+  //   "pricing",
+  //   "promotion",
+  //   "pictures",
+  //   "insurance",
+  //   "subscription",
+  //   "device",
+  //   "easy access",
+  // ];
+
   const navItems = [
-    "location",
-    "about",
-    "features",
-    "rules",
-    "pricing",
-    "promotion",
-    "pictures",
-    "insurance",
-    "subscription",
-    "device",
-    "easy access",
+    { path: "/location", content: "location" },
+    { path: "/about", content: "about" },
+    { path: "/features", content: "features" },
+    { path: "/rules", content: "rules" },
+    { path: "/pricing", content: "pricing" },
+    { path: "/promotion", content: "promotion" },
+    { path: "/pictures", content: "pictures" },
+    { path: "/insurance", content: "insurance" },
+    { path: "/subscription", content: "subscription" },
+    { path: "/device", content: "device" },
+    { path: "/easy-access", content: "easy access" },
   ];
 
   const handleItemClick = (item) => {
@@ -45,18 +67,19 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <ul className="nav-list">
-        {navItems.map((item) => (
-          <li key={item}>
+        {navItems.map((item, index) => (
+          <li key={index}>
             <Link
-              to={item}
-              onClick={() => handleItemClick(item)}
-              className={`nav-item ${item === activeItem ? "active" : ""}`}
+              to={item.path}
+              onClick={() => handleItemClick(item.path)}
+              className={`nav-item ${
+                item.path === activeRoute ? "active" : ""
+              }`}
             >
-              <span>{item}</span>
+              <span>{item.content}</span>
 
-              {visitedItems.includes(item) && activeItem !== item && (
-                <FaCheck className="check-icon" />
-              )}
+              {visitedItems.includes(item.path) &&
+                activeRoute !== item.path && <FaCheck className="check-icon" />}
             </Link>
           </li>
         ))}
