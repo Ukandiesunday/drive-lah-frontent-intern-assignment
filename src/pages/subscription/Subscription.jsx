@@ -127,7 +127,7 @@ const Subscription = () => {
         </div>
       </section>
       <hr />
-      {activeItem === 2 && (
+      {activeItem >= 2 && (
         <section className={`section `}>
           <h4 className="subheading">Add card details</h4>
           <button className="select-add-button add-card-wrapper">
@@ -150,7 +150,7 @@ const Subscription = () => {
       <article className="article">
         <p>
           Learn more about the plans here-{" "}
-          <a href="">what is the right plan for me?</a>
+          <a href="#">what is the right plan for me?</a>
         </p>
         <p>
           You will be able to switch between plans easily later as well. Speak

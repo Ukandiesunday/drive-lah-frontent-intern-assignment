@@ -32,3 +32,5 @@ git clone https://github.com/Ukandiesunday/drive-lah-frontent-intern-assignment.
   Museo Sans Rounded was not available on google fonts resources, so I had to use poppins as an alternative since it is also a rounded font format.
 
 - User photo was not available on the internal design resources, so I had to pull an external photo .
+
+* I noticed that the page was overflowing the navbar when I scroll up on mobile device. So I had to set my navbar Z-index higher so that the page can flow under it.
